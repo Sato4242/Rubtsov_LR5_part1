@@ -5,10 +5,20 @@
 using namespace std;
 bool UserInput(string input) {
     if (input.empty()) return false;
+    for (char c : input) {
+        if (!isdigit(c)) {
+            return false;
+        }
+    }
     try {
         int number = stoi(input);
+        if (number <= 0) {
+            return false;
+        }
     }
-    catch (...) { return false; }
+    catch (...) { 
+        return false; 
+    }
     return true;
 }
 
